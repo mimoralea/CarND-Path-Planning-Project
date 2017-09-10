@@ -305,15 +305,7 @@ int main() {
                                 // enable lane changing logic only 100 s before the lap
                                 if(car_s < 6945.554 - 100)
                                 {
-                                    if(lane == 0)
-                                    {
-                                        std::cout << "right s=" << right_s << ", v=" << right_vel << std::endl;
-                                        if(right_s < 0 || right_s < car_s - clearance)
-                                        {
-                                            lane = 1;
-                                        }
-                                    }
-                                    else if(lane == 1)
+                                    if(lane == 1)
                                     {
                                         std::cout << "left s=" << left_s << ", v=" << left_vel << std::endl;
                                         std::cout << "right s=" << right_s << ", v=" << right_vel << std::endl;
@@ -343,6 +335,14 @@ int main() {
                                             {
                                                 lane = 2;
                                             }
+                                        }
+                                    }
+                                    else if(lane == 0)
+                                    {
+                                        std::cout << "right s=" << right_s << ", v=" << right_vel << std::endl;
+                                        if(right_s < 0 || right_s < car_s - clearance)
+                                        {
+                                            lane = 1;
                                         }
                                     }
                                     else if(lane == 2)
